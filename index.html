@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>FCC Twitch App Watcher ver.2</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container-fluid">
+  <div class="table-title">
+    <h1>Twitch Channel Watcher</h1>
+
+    
+<div class="add-section">
+    <button id="btn-add">Add new Channels</button>
+    <input class="hidden" id="searchId" type="text" placeholder=" e.g. Nintendo" data-bind="event: {keypress: onEnter}" />
+    <button class="hidden" id="btn-hide">Hide</button>
+    </div>
+    </br>
+    </br>
+    <p class="filter-text">Filter: <input id="inputBox" data-bind="value: filter, valueUpdate: 'afterkeydown'" /></p>
+<h3>Channels being watched</h3>
+  </div>
+
+
+  <table class="table-fill">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Channel</th>
+        <th>Status</th>
+        <th>Game</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <!-- Todo: Generate table body -->
+    <tbody data-bind="foreach: filteredChannels">
+      <tr>
+        <td><img src="" data-bind="attr: {src:logo}" /></td>
+        <td>
+          <a data-bind="text:user, attr:{href:url}" target="_blank"></a>
+        </td>
+        <td data-bind="text: status"></td>
+        <td data-bind="text: game"></td>
+        <td data-bind="text: desc"></td>
+        <td><a href="#" data-bind="click: $root.removeChannel"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
